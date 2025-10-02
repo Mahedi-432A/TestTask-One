@@ -2,11 +2,20 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Error from "./pages/Error";
 import Home from "./pages/Home";
+import HomeComponents from "./components/HomeComponents";
+import AddCoffee from "./components/AddCoffee";
+import UpdateCoffe from "./components/UpdateCoffe";
+import CoffeDetails from "./components/CoffeDetails";
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home></Home>} />
+      <Route path="/" element={<Home></Home>}>
+        <Route index element={<HomeComponents></HomeComponents>} />
+        <Route path="addCoffe" element={<AddCoffee></AddCoffee>} />
+        <Route path="updateCoffe" element={<UpdateCoffe></UpdateCoffe>} />
+        <Route path="coffeDetails" element={<CoffeDetails></CoffeDetails>} />
+      </Route>
       <Route path="*" elemont={<Error></Error>} />
     </Routes>
   );
