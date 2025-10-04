@@ -21,7 +21,13 @@
   background-repeat: no-repeat;
 }
 
-.footer-bg {
+.footer-bg{
+  background-image:linear-gradient(rgba(106, 106, 106, 0.2), rgba(106, 106, 106, 0.2)), url('images/more/11.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.footer-copy-bg {
   background-image:linear-gradient(rgba(106, 106, 106, 0.2), rgba(106, 106, 106, 0.2)), url('images/more/24.jpg');
   background-size: cover;
   background-repeat: no-repeat;
