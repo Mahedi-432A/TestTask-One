@@ -37,7 +37,7 @@ const Footer = () => {
             <input className='w-full bg-white text-[#1b1a1a99] font-raleway rounded-md pl-2 my-3 focus:outline-none focus:ring-2 focus:ring-[#E3B577]' type="text" name='Name' value='Name' />
             <input className='w-full bg-white text-[#1b1a1a99] font-raleway rounded-md pl-2 focus:outline-none focus:ring-2 focus:ring-[#E3B577]' type="email" name='E-mail' value='E-mail'/>
             <textarea className='w-full bg-white text-[#1b1a1a99] font-raleway rounded-md pl-2 my-3 focus:outline-none focus:ring-2 focus:ring-[#E3B577]' name="Message" cols="20" rows="6" value='Message'></textarea>
-            <button className='font-rancho lg:text-2xl text-xl text-[#331A15] border-2 border-[#331A15] rounded-2xl py-2 px-4' type='submit'>Send Message</button>
+            <button className='font-rancho lg:text-2xl text-xl text-[#331A15] border-2 border-[#331A15] rounded-2xl py-2 px-4 cursor-pointer hover:bg-amber-500 hover:border-transparent' type='submit'>Send Message</button>
           </form>
         </div>
       </div>
