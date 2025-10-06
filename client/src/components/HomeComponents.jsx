@@ -55,7 +55,15 @@ const HomeComponents = () => {
       </section>
 
       {/* products section */}
-      <section>Products section</section>
+      <section className="bg-[url('images/more/1.png')] bg-cover bg-center py-16 bg-white bg-no-repeat">
+        <p>--- Sip & Savor ---</p>
+        <h1>Our Popular Products</h1>
+        <button>Add Coffe</button>
+
+        <div>
+          <div></div>
+        </div>
+      </section>
 
       {/* gallery section */}
       <section className="bg-white text-center py-16 lg:py-20">
