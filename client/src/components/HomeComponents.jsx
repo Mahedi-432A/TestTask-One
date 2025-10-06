@@ -1,5 +1,6 @@
 import React from "react";
 import icons from "../assets/icons.json";
+import cups from '../assets/cups.json'
 
 const HomeComponents = () => {
   return (
@@ -50,6 +51,25 @@ const HomeComponents = () => {
               Your coffee is brewed by first roasting the green coffee beans
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* products section */}
+      <section>Products section</section>
+
+      {/* gallery section */}
+      <section className="bg-white text-center py-16 lg:py-20">
+        <p className="text-[#1B1A1A] lg:text-xl font-raleway">Follow Us Now</p>
+        <h1 className="text-[#331A15] font-rancho lg:text-5xl md:text-3xl text-2xl mt-2">Folow on Instagram</h1>
+        <div className="mt-12 grid lg:grid-cols-4 grid-cols-2 gap-4 lg:w-4/6 md:w-3/4 w-10/12 mx-auto">
+          <img src={cups.reactangle9} alt="gallery image 1" />
+          <img src={cups.reactangle10} alt="gallery image 2" />
+          <img src={cups.reactangle11} alt="gallery image 3" />
+          <img src={cups.reactangle12} alt="gallery image 4" />
+          <img src={cups.reactangle13} alt="gallery image 5" />
+          <img src={cups.reactangle14} alt="gallery image 6" />
+          <img src={cups.reactangle15} alt="gallery image 7" />
+          <img src={cups.reactangle16} alt="gallery image 8" />
         </div>
       </section>
     </>
