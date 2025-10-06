@@ -55,13 +55,13 @@ const HomeComponents = () => {
       </section>
 
       {/* products section */}
-      <section className="bg-[url('images/more/1.png')] bg-cover bg-center py-16 bg-white bg-no-repeat">
-        <p>--- Sip & Savor ---</p>
-        <h1>Our Popular Products</h1>
-        <button>Add Coffe</button>
+      <section className="text-center bg-[url('images/more/1.png')] bg-cover bg-center py-16 bg-white bg-no-repeat">
+        <p className="text-[#1B1A1A] lg:text-xl font-raleway">--- Sip & Savor ---</p>
+        <h1 className="text-[#331A15] font-rancho lg:text-5xl md:text-3xl text-2xl mt-2">Our Popular Products</h1>
+        <button className="rounded font-rancho lg:text-2xl text-xl px-4 mt-8 border-2 border-transparent hover:bg-[#F5F4F1] text-white hover:border-[#331A15] py-2 bg-[#E3B577]">Add Coffe</button>
 
         <div>
-          <div></div>
+          <div className="bg-[#F5F4F1] rounded-xl max-w-[640px]"></div>
         </div>
       </section>
 
