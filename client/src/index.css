@@ -32,3 +32,12 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+/* body part */
+
+/* banner */
+.banner-bg{
+  background-image:url('images/more/3.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
