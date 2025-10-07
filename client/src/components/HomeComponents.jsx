@@ -90,7 +90,7 @@ const HomeComponents = () => {
           Our Popular Products
         </h1>
         <Link to="/addCoffe">
-          <button className="rounded font-rancho lg:text-2xl text-xl px-4 mt-8 border-2 border-transparent hover:bg-[#F5F4F1] text-white hover:border-[#331A15] py-2 bg-[#E3B577]">
+          <button className="rounded cursor-pointer font-rancho lg:text-2xl text-xl px-4 mt-8 border-2 border-transparent hover:bg-[#F5F4F1] text-white hover:border-[#331A15] py-2 bg-[#E3B577]">
             Add Coffe
           </button>
         </Link>
