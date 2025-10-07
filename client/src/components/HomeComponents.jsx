@@ -112,13 +112,17 @@ const HomeComponents = () => {
               </p>
             </div>
             <div className="w-2/12 flex flex-col gap-3 text-white">
-              <button className="rounded font-rancho px-3 py-1 bg-[#D2B48C] cursor-pointer">
-                View
-              </button>
-              <button className="rounded font-rancho px-3 py-1 bg-[#3C393B] cursor-pointer">
-                Edit
-              </button>
-              <button className="rounded font-rancho px-3 py-1 bg-[#EA4744] cursor-pointer">
+              <Link to="coffeDetails">
+                <button className="rounded font-rancho w-12 text-center py-1 bg-[#D2B48C] cursor-pointer">
+                  View
+                </button>
+              </Link>
+              <Link to="updateCoffe">
+                <button className="rounded font-rancho w-12 text-center py-1 bg-[#3C393B] cursor-pointer">
+                  Edit
+                </button>
+              </Link>
+              <button className="rounded w-12 text-center font-rancho py-1 bg-[#EA4744] cursor-pointer">
                 Delete
               </button>
             </div>
