@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const AddCoffee = () => {
   const handleAddCoffee = (event) => {
@@ -21,8 +22,13 @@ const AddCoffee = () => {
       body: JSON.stringify(coffeeData),
     })
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
+      .then(() => {
+        Swal.fire({
+          title: "Coffee added successfully!",
+          icon: "success",
+          draggable: true,
+        });
+        form.reset();
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -86,15 +92,15 @@ const AddCoffee = () => {
               />
             </div>
 
-            {/* Chef */}
+            {/* Price */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Chef
+                Price
               </label>
               <input
-                name="chef"
-                type="text"
-                placeholder="Enter coffee chef"
+                name="Price"
+                type="number"
+                placeholder="Enter coffee Price"
                 className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring focus:ring-amber-200"
               />
             </div>
