@@ -98,7 +98,7 @@ const AddCoffee = () => {
                 Price
               </label>
               <input
-                name="Price"
+                name="price"
                 type="number"
                 placeholder="Enter coffee Price"
                 className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring focus:ring-amber-200"
