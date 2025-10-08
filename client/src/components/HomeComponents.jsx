@@ -2,8 +2,18 @@ import React from "react";
 import icons from "../assets/icons.json";
 import cups from "../assets/cups.json";
 import { Link } from "react-router-dom";
+import CoffeeCard from "../miniComponents/CoffeeCard";
 
 const HomeComponents = () => {
+  const [coffees, setCoffees] = React.useState([]);
+
+  React.useEffect(() => {
+    fetch('http://localhost:5000/coffees')
+      .then(res => res.json())
+      .then(data => setCoffees(data))
+      .catch(error => console.error('Error fetching coffees:', error));
+  }, []);
+
   return (
     <>
       {/* banner part */}
@@ -96,121 +106,7 @@ const HomeComponents = () => {
         </Link>
 
         <div className="mt-12 w-fit mx-auto text-start grid lg:grid-cols-2 grid-cols-1 gap-5">
-          <div className="bg-[#F5F4F1] rounded-xl max-w-xl w-fit p-7 flex items-center gap-4">
-            <div className="w-4/12">
-              <img src="images/1.png" alt="image of coffe" />
-            </div>
-            <div className="w-6/12 flex flex-col gap-3 font-raleway text-[#5C5B5B]">
-              <p>
-                <span className="text-[#1B1A1A]">Name: </span>Amerikano Coffe
-              </p>
-              <p>
-                <span className="text-[#1B1A1A]">Cheif: </span>Mr. Martin Paul
-              </p>
-              <p>
-                <span className="text-[#1B1A1A]">Price: </span>800 Taka
-              </p>
-            </div>
-            <div className="w-2/12 flex flex-col gap-3 text-white">
-              <Link to="coffeDetails">
-                <button className="rounded font-rancho w-12 text-center py-1 bg-[#D2B48C] cursor-pointer">
-                  View
-                </button>
-              </Link>
-              <Link to="updateCoffe">
-                <button className="rounded font-rancho w-12 text-center py-1 bg-[#3C393B] cursor-pointer">
-                  Edit
-                </button>
-              </Link>
-              <button className="rounded w-12 text-center font-rancho py-1 bg-[#EA4744] cursor-pointer">
-                Delete
-              </button>
-            </div>
-          </div>
-
-          <div className="bg-[#F5F4F1] rounded-xl max-w-xl w-fit p-7 flex items-center gap-4">
-            <div className="w-4/12">
-              <img src="images/1.png" alt="image of coffe" />
-            </div>
-            <div className="w-6/12 flex flex-col gap-3 font-raleway text-[#5C5B5B]">
-              <p>
-                <span className="text-[#1B1A1A]">Name: </span>Amerikano Coffe
-              </p>
-              <p>
-                <span className="text-[#1B1A1A]">Cheif: </span>Mr. Martin Paul
-              </p>
-              <p>
-                <span className="text-[#1B1A1A]">Price: </span>800 Taka
-              </p>
-            </div>
-            <div className="w-2/12 flex flex-col gap-3 text-white">
-              <button className="rounded font-rancho px-3 py-1 bg-[#D2B48C] cursor-pointer">
-                View
-              </button>
-              <button className="rounded font-rancho px-3 py-1 bg-[#3C393B] cursor-pointer">
-                Edit
-              </button>
-              <button className="rounded font-rancho px-3 py-1 bg-[#EA4744] cursor-pointer">
-                Delete
-              </button>
-            </div>
-          </div>
-
-          <div className="bg-[#F5F4F1] rounded-xl max-w-xl w-fit p-7 flex items-center gap-4">
-            <div className="w-4/12">
-              <img src="images/1.png" alt="image of coffe" />
-            </div>
-            <div className="w-6/12 flex flex-col gap-3 font-raleway text-[#5C5B5B]">
-              <p>
-                <span className="text-[#1B1A1A]">Name: </span>Amerikano Coffe
-              </p>
-              <p>
-                <span className="text-[#1B1A1A]">Cheif: </span>Mr. Martin Paul
-              </p>
-              <p>
-                <span className="text-[#1B1A1A]">Price: </span>800 Taka
-              </p>
-            </div>
-            <div className="w-2/12 flex flex-col gap-3 text-white">
-              <button className="rounded font-rancho px-3 py-1 bg-[#D2B48C] cursor-pointer">
-                View
-              </button>
-              <button className="rounded font-rancho px-3 py-1 bg-[#3C393B] cursor-pointer">
-                Edit
-              </button>
-              <button className="rounded font-rancho px-3 py-1 bg-[#EA4744] cursor-pointer">
-                Delete
-              </button>
-            </div>
-          </div>
-
-          <div className="bg-[#F5F4F1] rounded-xl max-w-xl w-fit p-7 flex items-center gap-4">
-            <div className="w-4/12">
-              <img src="images/1.png" alt="image of coffe" />
-            </div>
-            <div className="w-6/12 flex flex-col gap-3 font-raleway text-[#5C5B5B]">
-              <p>
-                <span className="text-[#1B1A1A]">Name: </span>Amerikano Coffe
-              </p>
-              <p>
-                <span className="text-[#1B1A1A]">Cheif: </span>Mr. Martin Paul
-              </p>
-              <p>
-                <span className="text-[#1B1A1A]">Price: </span>800 Taka
-              </p>
-            </div>
-            <div className="w-2/12 flex flex-col gap-3 text-white">
-              <button className="rounded font-rancho px-3 py-1 bg-[#D2B48C] cursor-pointer">
-                View
-              </button>
-              <button className="rounded font-rancho px-3 py-1 bg-[#3C393B] cursor-pointer">
-                Edit
-              </button>
-              <button className="rounded font-rancho px-3 py-1 bg-[#EA4744] cursor-pointer">
-                Delete
-              </button>
-            </div>
-          </div>
+          {coffees.map(coffee => <CoffeeCard key={coffee._id} coffee={coffee}></CoffeeCard>)}
         </div>
       </section>
 
