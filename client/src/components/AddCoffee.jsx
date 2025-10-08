@@ -2,8 +2,36 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const AddCoffee = () => {
+  const handleAddCoffee = (event) => {
+    event.preventDefault();
+
+    const form = event.target;
+
+    const formData = new FormData(form);
+    const coffeeData = Object.fromEntries(formData.entries());
+
+    console.log(coffeeData);
+
+    // send data to the server
+    fetch("http://localhost:5000/coffees", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(coffeeData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        alert("Failed to add coffee. Please try again.");
+      });
+  };
+
   return (
-    <section className="bg-[url('images/more/11.png')] bg-no-repeat bg-cover bg-center">
+    <section className="bg-[url(images/more/11.png)] bg-no-repeat bg-cover bg-center">
       <div className="w-fit mx-auto py-12">
         <Link to="/">
           <div className="flex items-center gap-3">
@@ -17,9 +45,9 @@ const AddCoffee = () => {
               <path
                 d="M19.5 12H4.5M4.5 12L11.25 18.75M4.5 12L11.25 5.25"
                 stroke="#331A15"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
             <p className="text-[#374151] font-rancho text-3xl">Back To Home</p>
@@ -41,13 +69,17 @@ const AddCoffee = () => {
           </p>
 
           {/* Form */}
-          <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <form
+            onSubmit={handleAddCoffee}
+            className="grid text-black grid-cols-1 md:grid-cols-2 gap-6"
+          >
             {/* Name */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Name
               </label>
               <input
+                name="name"
                 type="text"
                 placeholder="Enter coffee name"
                 className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring focus:ring-amber-200"
@@ -60,6 +92,7 @@ const AddCoffee = () => {
                 Chef
               </label>
               <input
+                name="chef"
                 type="text"
                 placeholder="Enter coffee chef"
                 className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring focus:ring-amber-200"
@@ -72,6 +105,7 @@ const AddCoffee = () => {
                 Supplier
               </label>
               <input
+                name="supplier"
                 type="text"
                 placeholder="Enter coffee supplier"
                 className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring focus:ring-amber-200"
@@ -84,6 +118,7 @@ const AddCoffee = () => {
                 Taste
               </label>
               <input
+                name="taste"
                 type="text"
                 placeholder="Enter coffee taste"
                 className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring focus:ring-amber-200"
@@ -96,6 +131,7 @@ const AddCoffee = () => {
                 Category
               </label>
               <input
+                name="category"
                 type="text"
                 placeholder="Enter coffee category"
                 className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring focus:ring-amber-200"
@@ -108,6 +144,7 @@ const AddCoffee = () => {
                 Details
               </label>
               <input
+                name="details"
                 type="text"
                 placeholder="Enter coffee details"
                 className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring focus:ring-amber-200"
@@ -121,6 +158,7 @@ const AddCoffee = () => {
               </label>
               <input
                 type="text"
+                name="photo"
                 placeholder="Enter photo URL"
                 className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring focus:ring-amber-200"
               />
