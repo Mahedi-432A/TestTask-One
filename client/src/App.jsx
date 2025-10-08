@@ -11,7 +11,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home></Home>}>
-        <Route index element={<HomeComponents></HomeComponents>} />
+        <Route index loader={'http://localhost:5000/coffees'} element={<HomeComponents></HomeComponents>} />
         <Route path="addCoffe" element={<AddCoffee></AddCoffee>} />
         <Route path="updateCoffe" element={<UpdateCoffe></UpdateCoffe>} />
         <Route path="coffeDetails" element={<CoffeDetails></CoffeDetails>} />
