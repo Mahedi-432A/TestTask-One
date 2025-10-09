@@ -1,7 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const CoffeDetails = () => {
+  const {id} = useParams();
+  const [coffee, setCoffee] = React.useState(null);
+  React.useEffect(() => {
+    fetch(`http://localhost:5000/coffees/${id}`)
+      .then((res) => res.json())
+      .then((data) => setCoffee(data))
+      .catch((error) => console.error("Error fetching coffee details:", error));
+  }, [id]);
+
   return (
     <section className="bg-[url('images/more/11.png')] bg-no-repeat bg-cover bg-center">
       <div className="w-fit mx-auto py-12">
@@ -30,7 +39,7 @@ const CoffeDetails = () => {
           {/* Left Side - Coffee Cup */}
           <div className="flex justify-center md:w-1/2">
             <img
-              src="images/1.png"
+              src={coffee?.photo}
               alt="Coffee Cup"
               className="w-48 h-auto"
             />
@@ -43,24 +52,22 @@ const CoffeDetails = () => {
             </h2>
             <ul className="space-y-1 text-gray-800">
               <li>
-                <span className="font-semibold">Name:</span> Americano Coffee
+                <span className="font-semibold">Name:</span> {coffee?.name}
               </li>
               <li>
-                <span className="font-semibold">Chef:</span> Mr. Matin Paul
+                <span className="font-semibold">Price:</span> ${coffee?.price}
               </li>
               <li>
-                <span className="font-semibold">Supplier:</span> Cappu
-                Authorizer
+                <span className="font-semibold">Supplier:</span> {coffee?.supplier}
               </li>
               <li>
-                <span className="font-semibold">Taste:</span> Sweet and hot
+                <span className="font-semibold">Taste:</span> {coffee?.taste}
               </li>
               <li>
-                <span className="font-semibold">Category:</span> Americano
+                <span className="font-semibold">Category:</span> {coffee?.category}
               </li>
               <li>
-                <span className="font-semibold">Details:</span> Espresso with
-                hot water
+                <span className="font-semibold">Details:</span> {coffee?.details}
               </li>
             </ul>
           </div>

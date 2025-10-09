@@ -14,7 +14,7 @@ function App() {
         <Route index element={<HomeComponents></HomeComponents>} />
         <Route path="addCoffe" element={<AddCoffee></AddCoffee>} />
         <Route path="updateCoffe" element={<UpdateCoffe></UpdateCoffe>} />
-        <Route path="coffeDetails" element={<CoffeDetails></CoffeDetails>} />
+        <Route path="coffeDetails/:id" element={<CoffeDetails></CoffeDetails>} />
       </Route>
       <Route path="*" element={<Error></Error>} />
     </Routes>

@@ -53,7 +53,7 @@ const CoffeeCard = ({ coffee }) => {
         </p>
       </div>
       <div className="w-2/12 flex flex-col gap-3 text-white">
-        <Link to="coffeDetails">
+        <Link to={`coffeDetails/${_id}`}>
           <button className="rounded font-rancho w-12 text-center py-1 bg-[#D2B48C] cursor-pointer">
             View
           </button>
