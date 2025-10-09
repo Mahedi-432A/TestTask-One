@@ -1,7 +1,48 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const UpdateCoffe = () => {
+  const { id } = useParams();
+
+  const [coffee, setCoffee] = React.useState(null);
+
+  React.useEffect(() => {
+    fetch(`http://localhost:5000/coffees/${id}`)
+      .then(res => res.json())
+      .then(data => {
+        setCoffee(data);
+      })
+      .catch(error => console.error('Error fetching coffee details:', error));
+  }, [id]);
+
+  const handleUpdateCoffee = (event) => {
+    event.preventDefault();
+    
+    const form = event.target;
+
+    const formData = new FormData(form);
+    const updatedCoffeeData = Object.fromEntries(formData.entries());
+    console.log(updatedCoffeeData);
+
+    fetch(`http://localhost:5000/coffees/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedCoffeeData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount) {
+          alert("Coffee updated successfully!");
+        }
+        form.reset();
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        alert("Failed to update coffee. Please try again.");
+      });
+  }
   return (
     <section className="bg-[url('images/more/11.png')] bg-no-repeat bg-cover bg-center">
       <div className="w-fit mx-auto py-12">
@@ -17,9 +58,9 @@ const UpdateCoffe = () => {
               <path
                 d="M19.5 12H4.5M4.5 12L11.25 18.75M4.5 12L11.25 5.25"
                 stroke="#331A15"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
             <p className="text-[#374151] font-rancho text-3xl">Back To Home</p>
@@ -38,7 +79,7 @@ const UpdateCoffe = () => {
           </p>
 
           {/* Form */}
-          <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <form onSubmit={handleUpdateCoffee} className="grid grid-cols-1 md:grid-cols-2 gap-6 text-black">
             {/* Name */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -46,19 +87,23 @@ const UpdateCoffe = () => {
               </label>
               <input
                 type="text"
+                name="name"
+                defaultValue={coffee?.name}
                 placeholder="Enter coffee name"
                 className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring focus:ring-amber-200"
               />
             </div>
 
-            {/* Chef */}
+            {/* Price */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Chef
+                Price
               </label>
               <input
-                type="text"
-                placeholder="Enter coffee chef"
+                name="price"
+                defaultValue={coffee?.price}
+                type="number"
+                placeholder="Enter coffee Price"
                 className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring focus:ring-amber-200"
               />
             </div>
@@ -70,6 +115,8 @@ const UpdateCoffe = () => {
               </label>
               <input
                 type="text"
+                name="supplier"
+                defaultValue={coffee?.supplier}
                 placeholder="Enter coffee supplier"
                 className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring focus:ring-amber-200"
               />
@@ -82,6 +129,8 @@ const UpdateCoffe = () => {
               </label>
               <input
                 type="text"
+                name="taste"
+                defaultValue={coffee?.taste}
                 placeholder="Enter coffee taste"
                 className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring focus:ring-amber-200"
               />
@@ -94,6 +143,8 @@ const UpdateCoffe = () => {
               </label>
               <input
                 type="text"
+                name="category"
+                defaultValue={coffee?.category}
                 placeholder="Enter coffee category"
                 className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring focus:ring-amber-200"
               />
@@ -106,6 +157,8 @@ const UpdateCoffe = () => {
               </label>
               <input
                 type="text"
+                name="details"
+                defaultValue={coffee?.details}
                 placeholder="Enter coffee details"
                 className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring focus:ring-amber-200"
               />
@@ -118,6 +171,8 @@ const UpdateCoffe = () => {
               </label>
               <input
                 type="text"
+                name="photo"
+                defaultValue={coffee?.photo}
                 placeholder="Enter photo URL"
                 className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring focus:ring-amber-200"
               />

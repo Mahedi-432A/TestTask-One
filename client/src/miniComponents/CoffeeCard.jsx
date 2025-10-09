@@ -58,7 +58,7 @@ const CoffeeCard = ({ coffee }) => {
             View
           </button>
         </Link>
-        <Link to="updateCoffe">
+        <Link to={`updateCoffe/${_id}`}>
           <button className="rounded font-rancho w-12 text-center py-1 bg-[#3C393B] cursor-pointer">
             Edit
           </button>

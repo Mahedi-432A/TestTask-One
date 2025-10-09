@@ -11,8 +11,6 @@ const AddCoffee = () => {
     const formData = new FormData(form);
     const coffeeData = Object.fromEntries(formData.entries());
 
-    console.log(coffeeData);
-
     // send data to the server
     fetch("http://localhost:5000/coffees", {
       method: "POST",
