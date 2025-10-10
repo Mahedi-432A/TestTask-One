@@ -6,6 +6,8 @@ import HomeComponents from "./components/HomeComponents";
 import AddCoffee from "./components/AddCoffee";
 import UpdateCoffe from "./components/UpdateCoffe";
 import CoffeDetails from "./components/CoffeDetails";
+import SignIn from "./components/SignIn";
+import SignUp from "./components/SignUp";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Route path="updateCoffe/:id" element={<UpdateCoffe></UpdateCoffe>} />
         <Route path="coffeDetails/:id" element={<CoffeDetails></CoffeDetails>} />
       </Route>
+      <Route path="signin" element={<SignIn></SignIn>}></Route>
+      <Route path="signup" element={<SignUp></SignUp>}></Route>
       <Route path="*" element={<Error></Error>} />
     </Routes>
   );

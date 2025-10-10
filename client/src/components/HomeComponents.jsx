@@ -106,7 +106,7 @@ const HomeComponents = () => {
         </Link>
 
         <div className="mt-12 w-fit mx-auto text-start grid lg:grid-cols-2 grid-cols-1 gap-5">
-          {coffees.map(coffee => <CoffeeCard key={coffee._id} coffee={coffee}></CoffeeCard>)}
+          {coffees.map(coffee => <CoffeeCard key={coffee._id} coffees={coffees} setCoffees={setCoffees} coffee={coffee}></CoffeeCard>)}
         </div>
       </section>
 
