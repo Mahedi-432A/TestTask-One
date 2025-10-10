@@ -8,6 +8,7 @@ import UpdateCoffe from "./components/UpdateCoffe";
 import CoffeDetails from "./components/CoffeDetails";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
+import Users from "./components/Users";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       </Route>
       <Route path="signin" element={<SignIn></SignIn>}></Route>
       <Route path="signup" element={<SignUp></SignUp>}></Route>
+      <Route path="users" element={<Users></Users>}></Route>
       <Route path="*" element={<Error></Error>} />
     </Routes>
   );

@@ -70,9 +70,14 @@ async function run() {
     });
 
     // users apis here
+    app.get('/users', async (req, res) => {
+      const cursor = usersCollection.find();
+      const result = await cursor.toArray();
+      res.send(result);
+    });
+
     app.post('/users', async (req, res) => {
       const newUser = req.body;
-      console.log(newUser);
       const result = await usersCollection.insertOne(newUser);
       res.send(result);
     });
